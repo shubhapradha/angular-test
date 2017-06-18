@@ -6,4 +6,7 @@ The user has a prepopulated "To Buy" Shopping List. Next to each item in "To Buy
 item should be removed from "To Buy" list and added to "Already Bought" List
 
 AngularJS version used is v1.6.4
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7fa6c8d5f8e603593f7c470ca144f53369f45917
