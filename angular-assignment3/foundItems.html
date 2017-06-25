@@ -1,0 +1,13 @@
+<div>
+<table class="table">
+  <tr ng-repeat="found in list.items">
+    <td> {{ found.name }}</td>
+    <td>{{ found.short_name }}</td>
+    <td> {{ found.description}}</td>
+    <td><button ng-click="list.removeItem({index: $index});">Don't want this one!</button></td>
+  </tr>
+</table>
+</div>
+<div>
+  <span ng-if="!list.items.length && list.searchInitiated">Nothing Found</span>
+</div>
