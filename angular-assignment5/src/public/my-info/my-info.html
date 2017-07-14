@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row" ng-if='!userInfoCtrl.isUserSubscribed'>
+      <div class="col-md-8">
+        <span>Not Signed Up Yet. Sign up Now!</span>
+      </div>
+    </div>
+
+    <div ng-if='userInfoCtrl.isUserSubscribed'>
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="container">
+                      <h3>{{ userInfoCtrl.userInfo.first_name }} {{ userInfoCtrl.userInfo.last_name }}</h3>
+                  </div>
+                  <hr>
+                  <ul class="container details" style="list-style:none;">
+                      <li>
+                          <p>
+                              <span class="glyphicon glyphicon-envelope one"></span>&nbsp;
+                              {{ userInfoCtrl.userInfo.email }}
+                          </p>
+                      </li>
+                      <li>
+                          <p>
+                              <span class="glyphicon glyphicon-earphone one"></span>&nbsp;
+                              {{ userInfoCtrl.userInfo.phone }}
+                          </p>
+                      </li>
+                  </ul>
+              </div>
+            </div>
+
+            <div class="row col-md-8">
+              <div class="col-sm-6">
+                  <div class="thumbnail">
+                      <img class="img-responsive" width="250" height="150"
+                          ng-src="{{userInfoCtrl.basePath}}/images/{{userInfoCtrl.userInfo.menu_short_name}}.jpg"
+                          alt="{{userInfoCtrl.userInfo.menu_name}}">
+                  </div>
+                  <div class="caption">
+                    <h4>{{userInfoCtrl.userInfo.menu_name}}</h4>
+                    <p>{{userInfoCtrl.userInfo.description}}</p>
+                  </div>
+              </div>
+            </div>
+    </div>

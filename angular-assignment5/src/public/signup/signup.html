@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-main">
+        <h4 class="heading"> Signup for our Newsletter </h4>
+        <div class="form">
+          <form name='regForm' novalidate>
+            <input type="text" name="firstname" placeholder="First Name" class="txt"
+                    ng-pattern="/^[a-zA-Z ]{1,25}$/"
+                    ng-model="signupCtrl.user.firstname"
+                    required>
+                    <span ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
+                      Please enter First Name
+                    </span>
+                    <span ng-if="regForm.firstname.$error.pattern">
+                      Please enter only alphabets
+                    </span>
+
+            <input type="text" name="lastname" placeholder="Last Name" class="txt"
+                    ng-pattern="/^[a-zA-Z ]{1,25}$/"
+                    ng-model="signupCtrl.user.lastname"
+                    required>
+                    <span ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
+                      Please enter Last Name
+                    </span>
+                    <span ng-if="regForm.lastname.$error.pattern">
+                      Please enter only alphabets
+                    </span>
+
+
+            <input type="email" name="email" placeholder="Email" class="txt"
+                    ng-model="signupCtrl.user.email"
+                    required>
+            <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+              Must be a valid email address: handle@domain format
+            </span>
+
+            <input type="text" name="phone" placeholder="Phone ###-###-####" class="txt"
+            pattern="(\d{3})-(\d{3})-(\d{4})"
+            ng-model="signupCtrl.user.phone">
+            <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+
+            <input type="text" name="favorite" placeholder="Favorite Menu Item" class="txt" required ui-validate="{blacklist : 'isAMenuItem($value)'}"
+                  ng-model="signupCtrl.user.favorite">
+            <div>
+              <span ng-if="regForm.favorite.$error.blacklist">No such menu number exists</span>
+                <span ng-if="signupCtrl.invalidMenuItem">
+                    No such menu number exists
+                </span>
+          </div>
+
+            <button class="submit"
+              ng-disabled="regForm.$invalid"
+              ng-click="signupCtrl.submit()">Sign up</button>
+
+          </form>
+          <div>
+            <span ng-if="signupCtrl.subscriptionSuccess">
+              Your information has been saved
+            </span>
+            <span ng-if="signupCtrl.subscriptionFailed">
+              Failed to register subscription
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
